@@ -13,32 +13,32 @@
   <div class="row">
     <h2 class="text-center mb-4">Add a new Campground</h2>
     <div class="col-6 offset-3">
-      <form action="/campgrounds" method="POST">
+      <form action="/campgrounds" method="POST" novalidate class="needs-validation">
         <div class="mb-3">
           <label for="title" class="form-label">Title</label>
-          <input type="text" class="form-control" id="title" name="campground[title]">
+          <input type="text" class="form-control" id="title" name="campground[title]" required>
         </div>
         <div class="mb-3">
           <label for="location" class="form-label">Location</label>
-          <input type="text" class="form-control" id="location" name="campground[location]">
+          <input type="text" class="form-control" id="location" name="campground[location]" required>
         </div>
         <div class="mb-3">
           <label for="image" class="form-label">Image URL</label>
-          <input type="text" class="form-control" id="image" name="campground[image]">
+          <input type="text" class="form-control" id="image" name="campground[image]" required>
         </div>
         <div class="mb-3">
           <label for="price" class="form-label">Price per night</label>
           <div class="input-group">
             <span class="input-group-text">$</span>
-            <input type="number" class="form-control" aria-label="Amount (to the nearest INR)" id="price"
-              name="campground[price]">
+            <input type="text" class="form-control" aria-label="Amount (to the nearest INR)" id="price"
+              name="campground[price]" required>
             <span class="input-group-text">.00</span>
           </div>
         </div>
 
         <div class="mb-3">
           <label for="desc" class="form-label">Description</label>
-          <textarea class="form-control" id="desc" name="campground[description]"></textarea>
+          <textarea class="form-control" id="desc" name="campground[description]" required></textarea>
         </div>
 
         <button type="submit" class="btn btn-primary">Add Campground</button>
@@ -49,6 +49,8 @@
       </div>
     </div>
   </div>
+
+
 
 
   <!-- title -->
