@@ -24,7 +24,7 @@
   </footer> -->
 
   <div class="row">
-    <div class="col-6 offset-3">
+    <div class="col-6">
       <div class="card mb-5">
         <img src="<%= campground.image%>" class="card-img-top" alt="...">
         <div class="card-body">
@@ -52,6 +52,46 @@
           2 days ago
         </div>
       </div>
+
+
+
+    </div>
+
+    <div class="col-6">
+      <h2 class="mb-2">Leave a review..</h2>
+      <div>
+        <form action="/campgrounds/<%=campground._id%>/reviews" class="mb-3 needs-validation" method="POST" novalidate>
+
+          <div class="mb-3">
+            <label for="rating" class="form-label mb-3">Rating</label>
+            <input type="range" class="form-range" id="rating" min="1" max="5" name="review[rating]" required>
+          </div>
+          <div class="mb-3">
+            <label for="body" class="form-label">Review</label>
+            <textarea class="form-control" name="review[body]" id="body" cols="30" rows="3" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-warning">Submit</button>
+        </form>
+      </div>
+
+      <%for(let review of campground.reviews){%>
+        <div class="card">
+          <div class="card-body">
+
+            <h5 class="card-title">Rating: <%=review.rating%>
+            </h5>
+
+            <p class="">Review: <%=review.body%>
+            </p>
+            <form action="/campgrounds/<%=campground._id%>/reviews/<%=review._id%>?_method=DELETE" method="POST">
+              <button class="btn btn-sm btn-danger">Delete</button>
+            </form>
+          </div>
+
+
+
+        </div>
+        <%}%>
     </div>
 
   </div>
